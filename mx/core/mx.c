@@ -92,7 +92,7 @@ void m_subtraction(mx m1, mx m2)
     }
 }
 
-void m_multiply(mx m, float n)
+void m_scalar(mx m, float n)
 {
     int i, j;
     for (i = 0; i < m.rows; i++)
@@ -121,7 +121,7 @@ void m_hadamard(mx m1, mx m2)
     }
 }
 
-mx m_scalar(mx m1, mx m2)
+mx m_multiply(mx m1, mx m2)
 {
     mx m;
     int i, j, k;
@@ -133,9 +133,9 @@ mx m_scalar(mx m1, mx m2)
     m = create_matrix(m1.rows, m2.cols);
     for (i = 0; i < m.rows; i++)
     {
-        for (j = 0; j < m.cols; j++)
+        for (k = 0; k < m1.cols; k++)
         {
-            for (k = 0; k < m1.cols; k++)
+            for (j = 0; j < m.cols; j++)
             {
                 m.data[i][j] += m1.data[i][k] * m2.data[k][j];
             }
